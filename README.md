@@ -37,7 +37,7 @@ Pliki:
 
 ## 🧮 Diagram architektury
 
-![Diagram architektury](docs/architecture_diagram.png)
+![Diagram architektury](docs/diagram_architektury.png)
 
 ---
 
