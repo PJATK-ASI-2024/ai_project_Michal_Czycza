@@ -49,6 +49,14 @@ Pliki:
 
 ---
 
+## 🧭 Linki projektu
+
+📦 **Repozytorium GitHub:**  https://github.com/PJATK-ASI-2024/ai_project_Michal_Czycza
+🗂️ **GitHub Project Board:** https://github.com/orgs/PJATK-ASI-2024/projects/191/views/1
+📜 **Diagram architektury:** [docs/architecture_diagram.png](docs/diagram_architektury.png)
+
+---
+
 ## 🚀 Status projektu
 
 📅 *Etap:* projekt architektury  
