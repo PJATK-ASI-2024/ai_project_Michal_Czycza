@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.ipynb_checkpoints/
+venv/
+.env/
+*.env
+data/raw/
+data/processed/
+data/models/
+.notebooks/
+.vscode/
+.idea/

@@ -1,0 +1,10 @@
+kedro>=0.18.0
+pandas
+numpy
+scikit-learn
+fastapi
+uvicorn
+streamlit
+matplotlib
+seaborn
+requests
