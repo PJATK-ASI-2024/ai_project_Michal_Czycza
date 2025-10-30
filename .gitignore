@@ -7,9 +7,6 @@ __pycache__/
 venv/
 .env/
 *.env
-data/raw/
-data/processed/
-data/models/
 .notebooks/
 .vscode/
 .idea/
