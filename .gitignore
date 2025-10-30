@@ -10,3 +10,5 @@ venv/
 .notebooks/
 .vscode/
 .idea/
+.conf/
+.notebooks/
