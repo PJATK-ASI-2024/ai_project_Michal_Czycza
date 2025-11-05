@@ -1,0 +1,1 @@
+{"raw_movies": {"rows": 4803, "columns": 20, "file_size": 5698602}, "raw_credits": {"rows": 4803, "columns": 4, "file_size": 40044293}, "merged_data": {"rows": 4803, "columns": 23, "file_size": 13787137}, "stats": {"rows": 23, "columns": 11}, "corr": {"rows": 7, "columns": 7}, "missing": {"rows": 23, "columns": 1}}
