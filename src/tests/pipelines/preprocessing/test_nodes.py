@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 import sys
 import os
 
-# Dodaj ścieżkę do src aby zaimportować moduły
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../../..'))
 
 from src.ai_project_movies.pipelines.preprocessing.nodes import (
@@ -17,7 +17,7 @@ class TestPreprocessingNodes:
     
     def test_merge_datasets(self):
         """Test łączenia datasetów."""
-        # Przygotowanie testowych danych
+
         movies_data = {
             'id': [1, 2, 3],
             'title': ['Movie 1', 'Movie 2', 'Movie 3'],
@@ -37,10 +37,10 @@ class TestPreprocessingNodes:
         movies_df = pd.DataFrame(movies_data)
         credits_df = pd.DataFrame(credits_data)
         
-        # Wywołanie funkcji
+
         result = merge_datasets(movies_df, credits_df)
         
-        # Asercje
+
         assert isinstance(result, pd.DataFrame)
         assert len(result) == 3
         assert 'combined_features' in result.columns
@@ -51,7 +51,7 @@ class TestPreprocessingNodes:
 
     def test_clean_data(self):
         """Test czyszczenia danych."""
-        # Przygotowanie testowych danych z brakującymi wartościami
+
         test_data = {
             'id': [1, 2, 3, 4],
             'title': ['Movie 1', 'Movie 2', None, 'Movie 4'],
@@ -63,12 +63,12 @@ class TestPreprocessingNodes:
         
         df = pd.DataFrame(test_data)
         
-        # Wywołanie funkcji
+
         result = clean_data(df)
         
-        # Asercje
+
         assert isinstance(result, pd.DataFrame)
-        assert len(result) > 0  # Powinny pozostać jakieś dane
+        assert len(result) > 0  
         assert result['popularity'].isna().sum() == 0
         assert result['vote_average'].isna().sum() == 0
         assert result['vote_count'].isna().sum() == 0
@@ -78,18 +78,18 @@ class TestPreprocessingNodes:
     def test_clean_data_duplicates(self):
         """Test usuwania duplikatów."""
         test_data = {
-            'id': [1, 1, 2, 3],  # Duplikat id=1
+            'id': [1, 1, 2, 3], 
             'title': ['Movie 1', 'Movie 1', 'Movie 2', 'Movie 3'],
             'overview': ['Overview 1', 'Overview 1', 'Overview 2', 'Overview 3'],
             'popularity': [100, 100, 200, 300],
-            'vote_average': [7.5, 7.5, 8.0, 6.5],  # DODANE: brakująca kolumna
-            'vote_count': [1000, 1000, 2000, 3000]  # DODANE: brakująca kolumna
+            'vote_average': [7.5, 7.5, 8.0, 6.5], 
+            'vote_count': [1000, 1000, 2000, 3000]
         }
         
         df = pd.DataFrame(test_data)
         result = clean_data(df)
         
-        # Powinien zostać usunięty duplikat
+
         assert len(result) == 3
         assert result['id'].nunique() == 3
 
@@ -100,13 +100,13 @@ class TestPreprocessingNodes:
             'title': ['Movie 1', 'Movie 2', 'Movie 3'],
             'overview': ['Overview 1', 'Overview 2', 'Overview 3'],
             'popularity': [100, 200, 300]
-            # Celowo pominięte vote_average i vote_count
+
         }
         
         df = pd.DataFrame(test_data)
         result = clean_data(df)
         
-        # Funkcja powinna obsłużyć brakujące kolumny
+
         assert isinstance(result, pd.DataFrame)
         assert len(result) == 3
         assert 'title' in result.columns
@@ -125,13 +125,11 @@ class TestPreprocessingNodes:
         df = pd.DataFrame(test_data)
         result = scale_data(df)
         
-        # Asercje
         assert isinstance(result, pd.DataFrame)
         assert 'popularity' in result.columns
         assert 'vote_average' in result.columns
         assert 'vote_count' in result.columns
         
-        # Sprawdź czy dane są przeskalowane (średnia ~0, std ~1)
         scaler = StandardScaler()
         expected_scaled = scaler.fit_transform(df[['popularity', 'vote_average', 'vote_count']])
         
@@ -147,19 +145,16 @@ class TestPreprocessingNodes:
             'id': [1, 2, 3],
             'title': ['Movie 1', 'Movie 2', 'Movie 3'],
             'popularity': [100, 200, 300]
-            # Celowo pominięte vote_average i vote_count
         }
         
         df = pd.DataFrame(test_data)
         result = scale_data(df)
         
-        # Funkcja powinna obsłużyć brakujące kolumny
         assert isinstance(result, pd.DataFrame)
         assert 'popularity' in result.columns
 
     def test_split_data(self):
         """Test podziału danych."""
-        # Przygotowanie większego datasetu dla testu podziału
         test_data = {
             'id': range(100),
             'title': [f'Movie {i}' for i in range(100)],
@@ -176,14 +171,12 @@ class TestPreprocessingNodes:
         assert isinstance(val, pd.DataFrame)
         assert isinstance(test, pd.DataFrame)
         
-        # Sprawdź rozmiary (70/15/15)
         total_len = len(train) + len(val) + len(test)
         assert total_len == len(df)
         assert len(train) / total_len == pytest.approx(0.7, abs=0.05)  # 70% ±5%
         assert len(val) / total_len == pytest.approx(0.15, abs=0.05)   # 15% ±5%
         assert len(test) / total_len == pytest.approx(0.15, abs=0.05)  # 15% ±5%
         
-        # Sprawdź czy nie ma nakładających się danych
         train_ids = set(train['id'])
         val_ids = set(val['id'])
         test_ids = set(test['id'])
@@ -203,7 +196,6 @@ class TestPreprocessingNodes:
         
         df = pd.DataFrame(test_data)
         
-        # Powinien rzucić wyjątek dla zbyt małego datasetu
         with pytest.raises(ValueError, match="Za mało danych do podziału"):
             split_data(df)
 
