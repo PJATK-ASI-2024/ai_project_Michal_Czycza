@@ -52,7 +52,7 @@ Pliki:
 ## 🧭 Linki projektu
 
 📦 **Repozytorium GitHub:** https://github.com/PJATK-ASI-2024/ai_project_Michal_Czycza  
-🧪 **Testy jednostkowe:** [src/tests/pipelines/preprocessing/](src/tests/pipelines/preprocessing/)  
+🧪 **Testy jednostkowe:** [src/tests/pipelines/preprocessing/test_nodes.py](src/tests/pipelines/preprocessing/test_nodes.py)  
 📄 **Raport preprocessingowy:** [docs/preprocessing_report.md](docs/preprocessing_report.md)
 
 
