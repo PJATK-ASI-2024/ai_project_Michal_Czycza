@@ -15,9 +15,26 @@ raw_credits:
   load_args:
     encoding: utf-8
 
-
-
 merged_data:
   type: pandas.ParquetDataset
   filepath: data/intermediate/merged_movies.parquet
 
+clean_data:
+  type: pandas.ParquetDataset
+  filepath: data/intermediate/clean_data.parquet
+
+scaled_data:
+  type: pandas.ParquetDataset
+  filepath: data/primary/scaled_data.parquet
+
+train_data:
+  type: pandas.ParquetDataset
+  filepath: data/model_input/train.parquet
+
+val_data:
+  type: pandas.ParquetDataset
+  filepath: data/model_input/val.parquet
+
+test_data:
+  type: pandas.ParquetDataset
+  filepath: data/model_input/test.parquet
