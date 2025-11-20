@@ -12,3 +12,7 @@ venv/
 .idea/
 .conf/
 .notebooks/
+*.pkl
+
+data/models/
+data/model_input/
