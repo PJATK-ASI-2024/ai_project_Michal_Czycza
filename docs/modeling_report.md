@@ -1,5 +1,6 @@
 # Modeling Report — Movie Recommendation System  
 ---
+Nie udało się w 100% zrealizować wszystkich wymagań ze względu na system rekomendacji.
 
 ## 1. Cel projektu
 
