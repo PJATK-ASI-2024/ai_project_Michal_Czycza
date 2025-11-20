@@ -25,15 +25,11 @@ Wykorzystano przygotowane wcześniej dane:
 - `val.parquet` 
 - `test.parquet`
 
-Łącznie połączone w `all_data` (4800 filmów).
-
 Do cechowania wykorzystano kolumny tekstowe:
 - `title`
 - `overview` 
 - `genres`
 - `keywords`
-
-Tworzona była jedna kolumna: **combined_features**.
 
 ---
 
@@ -58,7 +54,7 @@ Model wybierany na podstawie własnej metryki:
 **Najlepsze parametry AutoML:** max_f=500, ngram=(1, 2), min_df=1
 
 ### **3.3 Custom Model**
-Zaawansowany TF-IDF:
+Zaawansowany:
 - max_features = 8000  
 - ngram_range = (1, 2)  
 - min_df = 3  
@@ -73,16 +69,16 @@ Zaawansowany TF-IDF:
 
 ### Wykresy porównawcze
 
-![Porównanie metryk](data/08_reporting/plots/metrics_comparison.png)
+![Porównanie metryk](../data/08_reporting/plots/metrics_comparison.png)
 *Rysunek 1: Kompleksowe porównanie wszystkich metryk*
 
-![Average Similarity](data/08_reporting/plots/avg_similarity.png)
+![Average Similarity](../data/08_reporting/plots/avg_similarity.png)
 *Rysunek 2: Porównanie średniego podobieństwa między modelami*
 
-![Matrix Density](data/08_reporting/plots/matrix_density.png)  
+![Matrix Density](../data/08_reporting/plots/matrix_density.png)  
 *Rysunek 3: Gęstość macierzy podobieństwa*
 
-![Success Rate](data/08_reporting/plots/success_rate.png)
+![Success Rate](../data/08_reporting/plots/success_rate.png)
 *Rysunek 4: Wskaźnik trafności rekomendacji*
 
 ### Tabela metryk
