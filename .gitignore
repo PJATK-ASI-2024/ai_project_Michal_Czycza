@@ -12,7 +12,16 @@ venv/
 .idea/
 .conf/
 .notebooks/
-*.pkl
 
+# Modele i duże pliki
+*.pkl
+*.pickle
+*.joblib
+
+# Foldery z danymi i modelami
+data/06_models/
+data/07_model_output/
+data/08_reporting/
+data/reporting/
 data/models/
 data/model_input/
