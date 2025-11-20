@@ -1,32 +1,4 @@
-# ===============================
-# Kedro Data Catalog
-# Projekt: ai_project_Michal_Czycza
-# ===============================
-
-raw_movies:
-  type: pandas.CSVDataset
-  filepath: data/raw/tmdb_5000_movies.csv
-  load_args:
-    encoding: utf-8
-
-raw_credits:
-  type: pandas.CSVDataset
-  filepath: data/raw/tmdb_5000_credits.csv
-  load_args:
-    encoding: utf-8
-
-merged_data:
-  type: pandas.ParquetDataset
-  filepath: data/intermediate/merged_movies.parquet
-
-clean_data:
-  type: pandas.ParquetDataset
-  filepath: data/intermediate/clean_data.parquet
-
-scaled_data:
-  type: pandas.ParquetDataset
-  filepath: data/primary/scaled_data.parquet
-
+# Dane wejściowe do modelowania
 train_data:
   type: pandas.ParquetDataset
   filepath: data/model_input/train.parquet
@@ -38,3 +10,45 @@ val_data:
 test_data:
   type: pandas.ParquetDataset
   filepath: data/model_input/test.parquet
+
+# Modele i wyniki - zapis do plików
+baseline_model:
+  type: pickle.PickleDataset
+  filepath: data/reporting/baseline_model.pkl
+
+automl_model:
+  type: pickle.PickleDataset
+  filepath: data/reporting/automl_model.pkl
+
+custom_model:
+  type: pickle.PickleDataset
+  filepath: data/reporting/custom_model.pkl
+
+best_model:
+  type: pickle.PickleDataset
+  filepath: data/reporting/best_model.pkl
+
+# Metryki i wyniki
+baseline_metrics:
+  type: json.JSONDataset
+  filepath: data/reporting/baseline_metrics.json
+
+automl_metrics:
+  type: json.JSONDataset
+  filepath: data/reporting/automl_metrics.json
+
+custom_metrics:
+  type: json.JSONDataset
+  filepath: data/reporting/custom_metrics.json
+
+automl_results:
+  type: pandas.CSVDataset
+  filepath: data/reporting/automl_results.csv
+
+model_comparison:
+  type: json.JSONDataset
+  filepath: data/reporting/model_comparison.json
+
+final_test_metrics:
+  type: json.JSONDataset
+  filepath: data/reporting/final_test_metrics.json

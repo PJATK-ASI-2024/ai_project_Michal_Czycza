@@ -1,26 +1,6 @@
-# --- Główne pakiety Kedro ---
-kedro[jupyter]~=1.0.0
-kedro-viz>=6.7.0
-
-# --- Analiza danych ---
-pandas>=2.0.0
-numpy>=1.24.0
-scikit-learn>=1.5.0
-
-# --- Wizualizacja ---
-matplotlib>=3.8.0
-seaborn>=0.12.0
-plotly>=5.17.0
-
-# --- Notatniki i interaktywne środowisko ---
-ipython>=8.10
-jupyterlab>=3.0
-notebook>=7.0
-
-# --- Formatowanie, logowanie, utils ---
-pyyaml>=6.0
-tqdm>=4.66.0
-
-# --- Opcjonalne (dla stabilności) ---
-requests>=2.31.0
-python-dotenv>=1.0.0
+kedro==1.0.0
+pandas==2.0.3
+numpy==1.24.3
+scikit-learn==1.3.0
+matplotlib==3.7.2
+seaborn==0.12.2

@@ -1,0 +1,62 @@
+{
+  "test_cases": [
+    {
+      "input_movie": "Desert Dancer",
+      "recommendations": [
+        "Flashdance",
+        "Showgirls",
+        "Take the Lead",
+        "Center Stage",
+        "ABCD (Any Body Can Dance)"
+      ],
+      "similarity_scores": [
+        0.5952580964004742,
+        0.5519553181241479,
+        0.5374993730152458,
+        0.43610572814454707,
+        0.408431363822088
+      ]
+    },
+    {
+      "input_movie": "The Age of Innocence",
+      "recommendations": [
+        "Cheri",
+        "Metropolitan",
+        "Mary Reilly",
+        "The Elephant Man",
+        "The Love Letter"
+      ],
+      "similarity_scores": [
+        0.3906045265633327,
+        0.3838749929985075,
+        0.36359207618750455,
+        0.3562462227461753,
+        0.34711992680567666
+      ]
+    },
+    {
+      "input_movie": "Body Double",
+      "recommendations": [
+        "Tootsie",
+        "An American in Hollywood",
+        "Stuck on You",
+        "Wonderland",
+        "Spring Breakers"
+      ],
+      "similarity_scores": [
+        0.26988922631460316,
+        0.2608149156212931,
+        0.23758695160937426,
+        0.23297342692089062,
+        0.22641191448731066
+      ]
+    }
+  ],
+  "total_movies": 4800,
+  "similarity_matrix_shape": [
+    4800,
+    4800
+  ],
+  "avg_similarity": 0.02508583195306625,
+  "evaluation_date": "2025-11-20T01:22:00.599092"
+}
