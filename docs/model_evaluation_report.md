@@ -68,11 +68,6 @@ Poniżej osadzone wykresy wygenerowane przez skrypt analityczny.
 ### Wyniki dla poszczególnych foldów (CV)
 ![](../data/08_reporting/plots/cv_fold_results.png)
 
-### Tabela podsumowująca
-- `data/08_reporting/plots/evaluation_summary.csv` (tabela zapisana jako CSV)
-
-Jeśli chcesz inne formatowanie (np. kontrola rozmiaru obrazów lub podział na kolumny), mogę dostosować markdown lub wygenerować wersję PDF z wklejonymi obrazami.
-
 ## 6. Interpretacja wyników
 - Model baseline (TF-IDF + cosine) osiąga umiarkowane wyniki: Recall@5 ≈ 0.49 na zbiorze testowym.
 - Wysokie wartości MAP sugerują, że top-ranki są względnie spójne.
