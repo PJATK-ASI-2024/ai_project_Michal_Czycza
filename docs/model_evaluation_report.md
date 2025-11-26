@@ -54,19 +54,19 @@ Wszystkie wykresy znajdują się w `data/08_reporting/plots/`:
 Poniżej osadzone wykresy wygenerowane przez skrypt analityczny.
 
 ### Porównanie metryk: Cross-Validation vs Test Set
-![](../data/08_reporting/plots/metrics_comparison.png)
+![](data/08_reporting/plots/metrics_comparison.png)
 
 ### Recall@K
-![](../data/08_reporting/plots/recall_at_k.png)
+![](data/08_reporting/plots/recall_at_k.png)
 
 ### Top 15 ważnych słów (Feature Importance)
-![](../data/08_reporting/plots/feature_importance.png)
+![](data/08_reporting/plots/feature_importance.png)
 
 ### Rozkład similarity scores (estymowany)
-![](../data/08_reporting/plots/similarity_distribution.png)
+![](data/08_reporting/plots/similarity_distribution.png)
 
 ### Wyniki dla poszczególnych foldów (CV)
-![](../data/08_reporting/plots/cv_fold_results.png)
+![](data/08_reporting/plots/cv_fold_results.png)
 
 ## 6. Interpretacja wyników
 - Model baseline (TF-IDF + cosine) osiąga umiarkowane wyniki: Recall@5 ≈ 0.49 na zbiorze testowym.
