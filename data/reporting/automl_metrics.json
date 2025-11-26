@@ -1,8 +1,8 @@
 {
-  "best_score": 0.06738702170180658,
-  "best_params": "max_f=500, ngram=(1, 2), min_df=1",
-  "avg_similarity": 0.042169703621628446,
-  "matrix_density": 0.12622743055555555,
+  "best_score": 0.06737873765955572,
+  "best_params": "max_f=500, ngram=(1, 2), min_df=3",
+  "avg_similarity": 0.042167021061270085,
+  "matrix_density": 0.1262060763888889,
   "success_rate": 0.85,
   "model_type": "automl"
 }

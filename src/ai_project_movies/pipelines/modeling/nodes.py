@@ -299,31 +299,38 @@ import os
 
 sns.set(style="whitegrid")
 
-def plot_model_comparison(metrics_path: str, output_dir: str):
+def plot_model_comparison(metrics_input, output_dir: str):
     """
     Tworzy wykresy porównawcze dla baseline, AutoML i custom model.
-    
+
+    `metrics_input` może być ścieżką do pliku JSON albo już załadowanym słownikiem
+    (Kedro przekazuje obiekt z `model_comparison` z katalogu, dlatego obsługujemy oba typy).
+
     Args:
-        metrics_path (str): Ścieżka do pliku JSON z metrykami
-        output_dir (str): Katalog do zapisu wykresów
+        metrics_input (Union[str, dict]): ścieżka do JSON lub słownik z metrykami
+        output_dir (str): katalog do zapisu wykresów
     """
     os.makedirs(output_dir, exist_ok=True)
-    
-    with open(metrics_path, "r") as f:
-        metrics = json.load(f)
-    
+
+    # Jeśli Kedro przekazało już słownik, użyj go bez ponownego wczytywania pliku
+    if isinstance(metrics_input, dict):
+        metrics = metrics_input
+    else:
+        # zakładamy, że metrics_input to ścieżka
+        with open(metrics_input, "r", encoding="utf-8") as f:
+            metrics = json.load(f)
+
     models = ["baseline", "automl", "custom"]
-    avg_similarity = [metrics[m]["avg_similarity"] for m in models]
-    matrix_density = [metrics[m]["matrix_density"] for m in models]
-    success_rate = [metrics[m]["success_rate"] for m in models]
-    
+    avg_similarity = [metrics.get(m, {}).get("avg_similarity", 0) for m in models]
+    matrix_density = [metrics.get(m, {}).get("matrix_density", 0) for m in models]
+    success_rate = [metrics.get(m, {}).get("success_rate", 0) for m in models]
+
     df = pd.DataFrame({
         "Model": models,
         "Avg_similarity": avg_similarity,
         "Matrix_density": matrix_density,
         "Success_rate": success_rate
     })
-    
 
     df_melt = df.melt(id_vars="Model", var_name="Metric", value_name="Value")
     plt.figure(figsize=(10, 6))
@@ -332,9 +339,10 @@ def plot_model_comparison(metrics_path: str, output_dir: str):
     plt.ylabel("Wartość metryki")
     plt.legend(title="Metryka")
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "metrics_comparison.png"), dpi=300, bbox_inches='tight')
+    out_path = os.path.join(output_dir, "metrics_comparison.png")
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close()
-    print(f"Zapisano wykres porównania metryk do {output_dir}/metrics_comparison.png")
+    print(f"Zapisano wykres porównania metryk do {out_path}")
 
 
 

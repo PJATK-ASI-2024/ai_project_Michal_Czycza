@@ -52,3 +52,20 @@ model_comparison:
 final_test_metrics:
   type: json.JSONDataset
   filepath: data/reporting/final_test_metrics.json
+
+# Evaluation Pipeline - Cross-validation i test metrics (Zajęcia 5)
+cv_results:
+  type: json.JSONDataset
+  filepath: data/reporting/cv_results.json
+
+test_evaluation_results:
+  type: json.JSONDataset
+  filepath: data/reporting/test_evaluation_results.json
+
+feature_importance_results:
+  type: json.JSONDataset
+  filepath: data/reporting/feature_importance_results.json
+
+model_version_record:
+  type: json.JSONDataset
+  filepath: data/reporting/model_version_record.json
