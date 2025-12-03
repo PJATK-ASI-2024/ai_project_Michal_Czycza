@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/micha/Desktop/ai_project_Michal_Czycza/mlruns/0/46fd77fbad3d467a96244e8048e6fa8a/artifacts
+end_time: 1764772469495
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 46fd77fbad3d467a96244e8048e6fa8a
+run_name: languid-hound-48
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764772469392
+status: 3
+tags: []
+user_id: micha

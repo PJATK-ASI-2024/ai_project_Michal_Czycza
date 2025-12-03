@@ -13,12 +13,10 @@ venv/
 .conf/
 .notebooks/
 
-# Modele i duże pliki
 *.pkl
 *.pickle
 *.joblib
 
-# Foldery z danymi i modelami
 data/06_models/
 data/07_model_output/
 data/reporting/

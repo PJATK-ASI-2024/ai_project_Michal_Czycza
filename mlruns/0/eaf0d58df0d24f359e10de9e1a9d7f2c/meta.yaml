@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/micha/Desktop/ai_project_Michal_Czycza/mlruns/0/eaf0d58df0d24f359e10de9e1a9d7f2c/artifacts
+end_time: 1764786586557
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: eaf0d58df0d24f359e10de9e1a9d7f2c
+run_name: sneaky-worm-99
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764786585525
+status: 3
+tags: []
+user_id: airflow

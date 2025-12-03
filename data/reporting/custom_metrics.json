@@ -1,7 +1,7 @@
 {
-  "matrix_density": 0.007534375,
-  "avg_similarity": 0.014227106077656341,
-  "max_similarity": 1.0000000000000009,
+  "matrix_density": 0.007550347222222222,
+  "avg_similarity": 0.014230946011377869,
+  "max_similarity": 1.000000000000001,
   "min_similarity": 0.0,
   "success_rate": 1.0,
   "model_type": "custom"

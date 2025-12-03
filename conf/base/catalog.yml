@@ -1,3 +1,25 @@
+# Dane surowe (raw) dla preprocessing i EDA
+raw_movies:
+  type: pandas.CSVDataset
+  filepath: data/raw/tmdb_5000_movies.csv
+
+raw_credits:
+  type: pandas.CSVDataset
+  filepath: data/raw/tmdb_5000_credits.csv
+
+# Dane pośrednie (intermediate) dla preprocessing
+merged_data:
+  type: pandas.ParquetDataset
+  filepath: data/intermediate/merged_data.parquet
+
+clean_data:
+  type: pandas.ParquetDataset
+  filepath: data/intermediate/clean_data.parquet
+
+scaled_data:
+  type: pandas.ParquetDataset
+  filepath: data/intermediate/scaled_data.parquet
+
 # Dane wejściowe do modelowania
 train_data:
   type: pandas.ParquetDataset
@@ -10,6 +32,19 @@ val_data:
 test_data:
   type: pandas.ParquetDataset
   filepath: data/model_input/test.parquet
+
+# EDA outputs
+stats:
+  type: pandas.CSVDataset
+  filepath: docs/stats.csv
+
+missing:
+  type: pandas.CSVDataset
+  filepath: docs/missing.csv
+
+corr:
+  type: pandas.CSVDataset
+  filepath: docs/correlation.csv
 
 # Modele i wyniki - zapis do plików
 baseline_model:

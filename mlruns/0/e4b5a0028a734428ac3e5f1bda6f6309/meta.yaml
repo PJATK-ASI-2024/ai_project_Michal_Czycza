@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/micha/Desktop/ai_project_Michal_Czycza/mlruns/0/e4b5a0028a734428ac3e5f1bda6f6309/artifacts
+end_time: 1764784849634
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e4b5a0028a734428ac3e5f1bda6f6309
+run_name: upbeat-rat-587
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764784849541
+status: 3
+tags: []
+user_id: micha
