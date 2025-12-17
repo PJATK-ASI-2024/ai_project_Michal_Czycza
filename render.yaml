@@ -1,0 +1,28 @@
+services:
+  # Backend API Service
+  - type: web
+    name: movie-recommender-backend
+    env: docker
+    dockerfilePath: ./app/Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+    healthCheckPath: /health
+
+  # Frontend Service  
+  - type: web
+    name: movie-recommender-frontend
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: API_BASE_URL
+        fromService:
+          type: web
+          name: movie-recommender-backend
+          property: host
+      - key: PORT
+        value: 8501

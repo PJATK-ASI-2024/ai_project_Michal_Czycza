@@ -119,5 +119,39 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  # ============================================
+  # Movie Recommender System Services (Zajęcia 8)
+  # ============================================
+  
+  backend:
+    build: 
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - "8000:8000"
+    container_name: ai_backend
+    networks:
+      - ai_network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "8501:8501"
+    container_name: ai_frontend
+    environment:
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - ai_network
+    restart: unless-stopped
+
+networks:
+  ai_network:
+    driver: bridge
+
 volumes:
   postgres_data:

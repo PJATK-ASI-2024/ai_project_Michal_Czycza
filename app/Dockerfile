@@ -27,10 +27,11 @@ COPY ./data/raw/tmdb_5000_movies.csv /app/data/raw/tmdb_5000_movies.csv
 
 # Port API
 EXPOSE 8000
+ENV PORT=8000
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import requests; requests.get('http://localhost:8000/health')"
 
-# Komenda startowa
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Komenda startowa (Render używa zmiennej PORT)
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}

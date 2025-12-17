@@ -18,10 +18,11 @@ COPY ./frontend /frontend
 
 # Port Streamlit
 EXPOSE 8501
+ENV PORT=8501
 
 # Healthcheck dla Streamlit
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl --fail http://localhost:8501/_stcore/health || exit 1
 
-# Komenda startowa
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true"]
+# Komenda startowa (Render używa zmiennej PORT)
+CMD streamlit run app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true
