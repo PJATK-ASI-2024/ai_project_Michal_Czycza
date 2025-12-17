@@ -26,6 +26,6 @@ services:
     plan: free
     envVars:
       - key: API_BASE_URL
-        value: https://movie-recommender-backend.onrender.com
+        value: https://movie-recommender-backend-92fi.onrender.com
       - key: PORT
         value: 8501
