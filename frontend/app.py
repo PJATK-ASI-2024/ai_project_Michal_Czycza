@@ -4,9 +4,11 @@ Streamlit Frontend for Movie Recommender System
 import streamlit as st
 import requests
 import pandas as pd
+import os
 from typing import List, Dict
 
-API_BASE_URL = "http://127.0.0.1:8000"
+# Support Docker environment variable
+API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
 
 
 st.set_page_config(

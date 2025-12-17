@@ -1,71 +1,92 @@
-<h1 align="center">🎬 Content-Based Movie Recommender System</h1>
-<p align="center">
-Rekomendacja filmów na podstawie tytułu filmu obejrzanego przez użytkownika
-</p>
-
+---
+title: Movie Recommender System
+emoji: 🎬
+colorFrom: red
+colorTo: blue
+sdk: docker
+pinned: false
+license: mit
 ---
 
-## 🧩 Wybór tematu projektu
+# 🎬 Content-Based Movie Recommender System
 
-**Problem do rozwiązania:**  
-Rekomendacja filmów na podstawie tytułu filmu obejrzanego przez użytkownika (**Content-Based Recommender System**).
+A machine learning-powered movie recommendation system that suggests similar movies based on content features using TF-IDF and cosine similarity.
 
-**Wartość użytkowa:**  
-System ułatwia użytkownikom odkrywanie filmów podobnych do tych, które już lubią.  
-Może stanowić bazę dla systemów rekomendacji w serwisach streamingowych (np. Netflix, HBO Max, Disney+).
+## Features
 
-**Zbiór danych:**  
-📂 [TMDB 5000 Movie Dataset (Kaggle)](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)  
-Pliki:  
-- `tmdb_5000_movies.csv`  
-- `tmdb_5000_credits.csv`
+- **Content-Based Filtering**: Analyzes movie metadata (title, overview, genres, keywords, cast, directors)
+- **TF-IDF Vectorization**: Converts text features into numerical representations
+- **Cosine Similarity**: Computes similarity scores between movies
+- **Interactive UI**: User-friendly Streamlit interface
+- **REST API**: FastAPI backend with automatic documentation
 
----
+## Dataset
 
-## 🏗️ Architektura systemu
+Based on TMDB 5000 Movie Dataset containing:
+- 4,803 movies
+- Metadata: titles, overviews, genres, keywords, cast, crew
+- Ratings and release dates
 
-| 🧱 Moduł                      | 📝 Opis                                         | ⚙️ Technologia  |
-| ----------------------------- | ---------------------------------------------- | ---------------- |
-| ETL / przetwarzanie danych    | Czyszczenie i przygotowanie danych filmowych   | Kedro            | 
-| Trening modelu                | Obliczanie podobieństwa między filmami         | scikit-learn     |
-| API backend                   | Udostępnienie rekomendacji                     | FastAPI          |
-| UI frontend                   | Interaktywny interfejs użytkownika             | Streamlit        |
-| Automatyzacja                 | Uruchamianie pipeline’u ETL i retrainingu      | Airflow          |
-| Wdrożenie                     | Konteneryzacja i deployment                    | Docker           |
+## How It Works
 
----
+1. **Input**: Enter a movie title you like
+2. **Processing**: System computes similarity with all movies in database
+3. **Output**: Returns top-N most similar movies with similarity scores
 
-## 🧮 Diagram architektury
+## Technology Stack
 
-![Diagram architektury](docs/diagram_architektury.png)
+- **Backend**: FastAPI + Uvicorn
+- **Frontend**: Streamlit
+- **ML**: scikit-learn (TF-IDF, Cosine Similarity)
+- **Data**: pandas, numpy
 
----
+## Usage
 
-## 👥 Członkowie zespołu
+### API Endpoints
 
-| Imię i nazwisko | Rola w projekcie | GitHub login |
-| ---------------- | ---------------- | ------------- |
-| **Michał Czycza** | Właściciel projektu | [@Mickelele](https://github.com/Mickelele) |
+- `GET /` - Health check
+- `GET /health` - Model status
+- `POST /recommend` - Get movie recommendations
+- `GET /movies` - List all movies (paginated)
+- `GET /search` - Search movies by title
 
----
+### Example API Request
 
-## 🧭 Linki projektu
+```python
+import requests
 
-📦 **Repozytorium GitHub:** https://github.com/PJATK-ASI-2024/ai_project_Michal_Czycza  
-🧪 **Testy jednostkowe:** [src/tests/pipelines/preprocessing/test_nodes.py](src/tests/pipelines/preprocessing/test_nodes.py)  
-📄 **Raport preprocessingowy:** [docs/preprocessing_report.md](docs/preprocessing_report.md)
+response = requests.post(
+    "http://localhost:7860/recommend",
+    json={"movie_title": "Avatar", "top_n": 5}
+)
+print(response.json())
+```
 
+## Local Development
 
----
+```bash
+# Using Docker
+docker build -f Dockerfile.huggingface -t movie-recommender .
+docker run -p 7860:7860 -p 8501:8501 movie-recommender
 
-## 🚀 Status projektu
+# Access the app
+# API: http://localhost:7860
+# Frontend: http://localhost:8501
+```
 
-📅 *Etap:* projekt architektury  
-🔧 *Kolejny krok:* implementacja pipeline’u ETL w Kedro  
+## Performance
 
----
+- **Model**: TF-IDF Vectorizer with 4803x4803 similarity matrix
+- **Recall@5**: 65%
+- **Recall@10**: 79%
+- **NDCG@5**: 0.71
 
-## 📜 Licencja
+## Credits
 
-Projekt open-source, dostępny na zasadach licencji MIT.
+- **Dataset**: TMDB 5000 Movie Dataset
+- **Author**: Michał Czycza
+- **Project**: PJATK ASI 2024/2025
 
+## License
+
+MIT License

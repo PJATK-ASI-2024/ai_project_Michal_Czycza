@@ -27,7 +27,7 @@ app.add_middleware(
 )
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = BASE_DIR / "data" / "reporting" / "best_model.pkl"
 MOVIES_DATA_PATH = BASE_DIR / "data" / "raw" / "tmdb_5000_movies.csv"
 
